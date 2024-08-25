@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/num-derive-0.3.3/src/lib.rs`."><title>lib.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-cb6f1f67f1bcd037.css" id="mainThemeStyle"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="num_derive" data-themes="" data-resource-suffix="" data-rustdoc-version="1.73.0 (cc66ad468 2023-10-03)" data-channel="1.73.0" data-search-js="search-6dfdfced5eff6596.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-1596385f77d47ef2.css" data-theme-dark-css="dark-0a43001d3fc2282c.css" data-theme-ayu-css="ayu-fd19013d6ce078bf.css" ><script src="../../static.files/storage-db41da1a38ea3cb8.js"></script><script defer src="../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-0795b7d26be81095.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../static.files/light-1596385f77d47ef2.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../static.files/dark-0a43001d3fc2282c.css"><link rel="stylesheet" href="../../static.files/noscript-cffde32267a19fd6.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../num_derive/index.html"><img class="rust-logo" src="../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/num-derive-0.3.3/src/lib.rs`."><title>lib.rs - source</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-46f98efaafac5295.ttf.woff2,FiraSans-Regular-018c141bf0843ffd.woff2,FiraSans-Medium-8f9a781e4970d388.woff2,SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2,SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-dd39b87e5fcfba68.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="num_derive" data-themes="" data-resource-suffix="" data-rustdoc-version="1.80.1 (3f5fd8dd4 2024-08-06)" data-channel="1.80.1" data-search-js="search-d52510db62a78183.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-118b08c4c78b968e.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-20a3ad099b048cf2.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-df360f571f6edeae.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="src-sidebar-title"><h2>Files</h2></div></nav><div class="sidebar-resizer"></div><main><rustdoc-search></rustdoc-search><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -966,9 +966,9 @@
 // option. This file may not be copied, modified, or distributed
 // except according to those terms.
 
-</span><span class="attr">#![crate_type = <span class="string">&quot;proc-macro&quot;</span>]
-#![doc(html_root_url = <span class="string">&quot;https://docs.rs/num-derive/0.3&quot;</span>)]
-#![recursion_limit = <span class="string">&quot;512&quot;</span>]
+</span><span class="attr">#![crate_type = <span class="string">"proc-macro"</span>]
+#![doc(html_root_url = <span class="string">"https://docs.rs/num-derive/0.3"</span>)]
+#![recursion_limit = <span class="string">"512"</span>]
 
 </span><span class="doccomment">//! Procedural macros to derive numeric traits in Rust.
 //!
@@ -978,8 +978,8 @@
 //!
 //! ```toml
 //! [dependencies]
-//! num-traits = &quot;0.2&quot;
-//! num-derive = &quot;0.3&quot;
+//! num-traits = "0.2"
+//! num-derive = "0.3"
 //! ```
 //!
 //! Then you can derive traits on your own types:
@@ -1012,7 +1012,7 @@
 //! extern crate num_traits as some_other_ident;
 //!
 //! #[derive(FromPrimitive, ToPrimitive)]
-//! #[num_traits = &quot;some_other_ident&quot;]
+//! #[num_traits = "some_other_ident"]
 //! enum Color {
 //!     Red,
 //!     Blue,
@@ -1029,16 +1029,16 @@
 <span class="kw">use </span>syn::{Data, Fields, Ident};
 
 <span class="doccomment">/// Try to parse the tokens, or else return a compilation error
-/// suggesting &quot;full-syntax&quot; if that&#39;s not already enabled.
-</span><span class="macro">macro_rules! </span>parse {
+/// suggesting "full-syntax" if that's not already enabled.
+</span><span class="macro">macro_rules!</span> parse {
     (<span class="macro-nonterminal">$tokens</span>:ident <span class="kw">as </span><span class="macro-nonterminal">$</span><span class="kw">type</span>:<span class="macro-nonterminal">ty</span>) =&gt; {
         <span class="kw">match </span>syn::parse::&lt;<span class="macro-nonterminal">$</span><span class="kw">type</span>&gt;(<span class="macro-nonterminal">$tokens</span>) {
             <span class="prelude-val">Ok</span>(parsed) =&gt; parsed,
             <span class="prelude-val">Err</span>(<span class="kw-2">mut </span>error) =&gt; {
-                <span class="kw">if </span><span class="macro">cfg!</span>(not(feature = <span class="string">&quot;full-syntax&quot;</span>)) {
+                <span class="kw">if </span><span class="macro">cfg!</span>(not(feature = <span class="string">"full-syntax"</span>)) {
                     <span class="kw">let </span>hint = syn::Error::new(
                         Span::call_site(),
-                        <span class="string">r#&quot;this might need the &quot;full-syntax&quot; feature of `num-derive`&quot;#</span>,
+                        <span class="string">r#"this might need the "full-syntax" feature of `num-derive`"#</span>,
                     );
                     error.combine(hint);
                 }
@@ -1050,27 +1050,27 @@
 
 <span class="comment">// Within `exp`, you can bring things into scope with `extern crate`.
 //
-// We don&#39;t want to assume that `num_traits::` is in scope - the user may have imported it under a
+// We don't want to assume that `num_traits::` is in scope - the user may have imported it under a
 // different name, or may have imported it in a non-toplevel module (common when putting impls
 // behind a feature gate).
 //
-// Solution: let&#39;s just generate `extern crate num_traits as _num_traits` and then refer to
+// Solution: let's just generate `extern crate num_traits as _num_traits` and then refer to
 // `_num_traits` in the derived code.  However, macros are not allowed to produce `extern crate`
 // statements at the toplevel.
 //
-// Solution: let&#39;s generate `mod _impl_foo` and import num_traits within that.  However, now we
+// Solution: let's generate `mod _impl_foo` and import num_traits within that.  However, now we
 // lose access to private members of the surrounding module.  This is a problem if, for example,
-// we&#39;re deriving for a newtype, where the inner type is defined in the same module, but not
+// we're deriving for a newtype, where the inner type is defined in the same module, but not
 // exported.
 //
 // Solution: use the dummy const trick.  For some reason, `extern crate` statements are allowed
 // here, but everything from the surrounding module is in scope.  This trick is taken from serde.
 </span><span class="kw">fn </span>dummy_const_trick(trait_: <span class="kw-2">&amp;</span>str, name: <span class="kw-2">&amp;</span>Ident, exp: TokenStream2) -&gt; TokenStream2 {
     <span class="kw">let </span>dummy_const = Ident::new(
-        <span class="kw-2">&amp;</span><span class="macro">format!</span>(<span class="string">&quot;_IMPL_NUM_{}_FOR_{}&quot;</span>, trait_, unraw(name)),
+        <span class="kw-2">&amp;</span><span class="macro">format!</span>(<span class="string">"_IMPL_NUM_{}_FOR_{}"</span>, trait_, unraw(name)),
         Span::call_site(),
     );
-    <span class="macro">quote! </span>{
+    <span class="macro">quote!</span> {
         <span class="attr">#[allow(non_upper_case_globals, unused_qualifications)]
         </span><span class="kw">const </span>#dummy_const: () = {
             <span class="attr">#[allow(clippy::useless_attribute)]
@@ -1082,10 +1082,10 @@
 }
 
 <span class="kw">fn </span>unraw(ident: <span class="kw-2">&amp;</span>Ident) -&gt; String {
-    ident.to_string().trim_start_matches(<span class="string">&quot;r#&quot;</span>).to_owned()
+    ident.to_string().trim_start_matches(<span class="string">"r#"</span>).to_owned()
 }
 
-<span class="comment">// If `data` is a newtype, return the type it&#39;s wrapping.
+<span class="comment">// If `data` is a newtype, return the type it's wrapping.
 </span><span class="kw">fn </span>newtype_inner(data: <span class="kw-2">&amp;</span>syn::Data) -&gt; <span class="prelude-ty">Option</span>&lt;syn::Type&gt; {
     <span class="kw">match </span><span class="kw-2">*</span>data {
         Data::Struct(<span class="kw-2">ref </span>s) =&gt; {
@@ -1099,8 +1099,8 @@
                 }
                 Fields::Named(<span class="kw-2">ref </span>fs) =&gt; {
                     <span class="kw">if </span>fs.named.len() == <span class="number">1 </span>{
-                        <span class="macro">panic!</span>(<span class="string">&quot;num-derive doesn&#39;t know how to handle newtypes with named fields yet. \
-                           Please use a tuple-style newtype, or submit a PR!&quot;</span>);
+                        <span class="macro">panic!</span>(<span class="string">"num-derive doesn't know how to handle newtypes with named fields yet. \
+                           Please use a tuple-style newtype, or submit a PR!"</span>);
                     }
                     <span class="prelude-val">None
                 </span>}
@@ -1129,22 +1129,22 @@
         // to import the `num_traits` crate.
         </span><span class="kw">for </span>attr <span class="kw">in </span><span class="kw-2">&amp;</span>ast.attrs {
             <span class="kw">if let </span><span class="prelude-val">Ok</span>(syn::Meta::NameValue(mnv)) = attr.parse_meta() {
-                <span class="kw">if </span>mnv.path.is_ident(<span class="string">&quot;num_traits&quot;</span>) {
+                <span class="kw">if </span>mnv.path.is_ident(<span class="string">"num_traits"</span>) {
                     <span class="kw">if let </span>syn::Lit::Str(lit_str) = mnv.lit {
                         <span class="kw">return </span>NumTraits {
                             import: syn::Ident::new(<span class="kw-2">&amp;</span>lit_str.value(), lit_str.span()),
                             explicit: <span class="bool-val">true</span>,
                         };
                     } <span class="kw">else </span>{
-                        <span class="macro">panic!</span>(<span class="string">&quot;#[num_traits] attribute value must be a str&quot;</span>);
+                        <span class="macro">panic!</span>(<span class="string">"#[num_traits] attribute value must be a str"</span>);
                     }
                 }
             }
         }
 
-        <span class="comment">// Otherwise, we&#39;ll implicitly import our own.
+        <span class="comment">// Otherwise, we'll implicitly import our own.
         </span>NumTraits {
-            import: Ident::new(<span class="string">&quot;_num_traits&quot;</span>, Span::call_site()),
+            import: Ident::new(<span class="string">"_num_traits"</span>, Span::call_site()),
             explicit: <span class="bool-val">false</span>,
         }
     }
@@ -1214,7 +1214,7 @@
     <span class="kw">let </span>import = NumTraits::new(<span class="kw-2">&amp;</span>ast);
 
     <span class="kw">let </span>impl_ = <span class="kw">if let </span><span class="prelude-val">Some</span>(inner_ty) = newtype_inner(<span class="kw-2">&amp;</span>ast.data) {
-        <span class="macro">quote! </span>{
+        <span class="macro">quote!</span> {
             <span class="kw">impl </span>#import::FromPrimitive <span class="kw">for </span>#name {
                 <span class="attr">#[inline]
                 </span><span class="kw">fn </span>from_i64(n: i64) -&gt; <span class="prelude-ty">Option</span>&lt;<span class="self">Self</span>&gt; {
@@ -1278,12 +1278,12 @@
         <span class="kw">let </span>variants = <span class="kw">match </span>ast.data {
             Data::Enum(<span class="kw-2">ref </span>data_enum) =&gt; <span class="kw-2">&amp;</span>data_enum.variants,
             <span class="kw">_ </span>=&gt; <span class="macro">panic!</span>(
-                <span class="string">&quot;`FromPrimitive` can be applied only to enums and newtypes, {} is neither&quot;</span>,
+                <span class="string">"`FromPrimitive` can be applied only to enums and newtypes, {} is neither"</span>,
                 name
             ),
         };
 
-        <span class="kw">let </span>from_i64_var = <span class="macro">quote! </span>{ n };
+        <span class="kw">let </span>from_i64_var = <span class="macro">quote!</span> { n };
         <span class="kw">let </span>clauses: Vec&lt;<span class="kw">_</span>&gt; = variants
             .iter()
             .map(|variant| {
@@ -1291,13 +1291,13 @@
                 <span class="kw">match </span>variant.fields {
                     Fields::Unit =&gt; (),
                     <span class="kw">_ </span>=&gt; <span class="macro">panic!</span>(
-                        <span class="string">&quot;`FromPrimitive` can be applied only to unitary enums and newtypes, \
-                         {}::{} is either struct or tuple&quot;</span>,
+                        <span class="string">"`FromPrimitive` can be applied only to unitary enums and newtypes, \
+                         {}::{} is either struct or tuple"</span>,
                         name, ident
                     ),
                 }
 
-                <span class="macro">quote! </span>{
+                <span class="macro">quote!</span> {
                     <span class="kw">if </span>#from_i64_var == #name::#ident <span class="kw">as </span>i64 {
                         <span class="prelude-val">Some</span>(#name::#ident)
                     }
@@ -1311,7 +1311,7 @@
             from_i64_var
         };
 
-        <span class="macro">quote! </span>{
+        <span class="macro">quote!</span> {
             <span class="kw">impl </span>#import::FromPrimitive <span class="kw">for </span>#name {
                 <span class="attr">#[allow(trivial_numeric_casts)]
                 #[inline]
@@ -1329,7 +1329,7 @@
         }
     };
 
-    import.wrap(<span class="string">&quot;FromPrimitive&quot;</span>, <span class="kw-2">&amp;</span>name, impl_).into()
+    import.wrap(<span class="string">"FromPrimitive"</span>, <span class="kw-2">&amp;</span>name, impl_).into()
 }
 
 <span class="doccomment">/// Derives [`num_traits::ToPrimitive`][to] for simple enums and newtypes.
@@ -1388,7 +1388,7 @@
     <span class="kw">let </span>import = NumTraits::new(<span class="kw-2">&amp;</span>ast);
 
     <span class="kw">let </span>impl_ = <span class="kw">if let </span><span class="prelude-val">Some</span>(inner_ty) = newtype_inner(<span class="kw-2">&amp;</span>ast.data) {
-        <span class="macro">quote! </span>{
+        <span class="macro">quote!</span> {
             <span class="kw">impl </span>#import::ToPrimitive <span class="kw">for </span>#name {
                 <span class="attr">#[inline]
                 </span><span class="kw">fn </span>to_i64(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;i64&gt; {
@@ -1452,7 +1452,7 @@
         <span class="kw">let </span>variants = <span class="kw">match </span>ast.data {
             Data::Enum(<span class="kw-2">ref </span>data_enum) =&gt; <span class="kw-2">&amp;</span>data_enum.variants,
             <span class="kw">_ </span>=&gt; <span class="macro">panic!</span>(
-                <span class="string">&quot;`ToPrimitive` can be applied only to enums and newtypes, {} is neither&quot;</span>,
+                <span class="string">"`ToPrimitive` can be applied only to enums and newtypes, {} is neither"</span>,
                 name
             ),
         };
@@ -1464,12 +1464,12 @@
                 <span class="kw">match </span>variant.fields {
                     Fields::Unit =&gt; (),
                     <span class="kw">_ </span>=&gt; {
-                        <span class="macro">panic!</span>(<span class="string">&quot;`ToPrimitive` can be applied only to unitary enums and newtypes, {}::{} is either struct or tuple&quot;</span>, name, ident)
+                        <span class="macro">panic!</span>(<span class="string">"`ToPrimitive` can be applied only to unitary enums and newtypes, {}::{} is either struct or tuple"</span>, name, ident)
                     },
                 }
 
-                <span class="comment">// NB: We have to check each variant individually, because we&#39;ll only have `&amp;self`
-                // for the input.  We can&#39;t move from that, and it might not be `Clone` or `Copy`.
+                <span class="comment">// NB: We have to check each variant individually, because we'll only have `&amp;self`
+                // for the input.  We can't move from that, and it might not be `Clone` or `Copy`.
                 // (Otherwise we could just do `*self as i64` without a `match` at all.)
                 </span><span class="macro">quote!</span>(#name::#ident =&gt; #name::#ident <span class="kw">as </span>i64)
             })
@@ -1477,18 +1477,18 @@
 
         <span class="kw">let </span>match_expr = <span class="kw">if </span>variants.is_empty() {
             <span class="comment">// No variants found, so do not use Some to not to trigger `unreachable_code` lint
-            </span><span class="macro">quote! </span>{
+            </span><span class="macro">quote!</span> {
                 <span class="kw">match </span><span class="kw-2">*</span><span class="self">self </span>{}
             }
         } <span class="kw">else </span>{
-            <span class="macro">quote! </span>{
+            <span class="macro">quote!</span> {
                 <span class="prelude-val">Some</span>(<span class="kw">match </span><span class="kw-2">*</span><span class="self">self </span>{
                     #(#variants,)*
                 })
             }
         };
 
-        <span class="macro">quote! </span>{
+        <span class="macro">quote!</span> {
             <span class="kw">impl </span>#import::ToPrimitive <span class="kw">for </span>#name {
                 <span class="attr">#[inline]
                 #[allow(trivial_numeric_casts)]
@@ -1504,10 +1504,10 @@
         }
     };
 
-    import.wrap(<span class="string">&quot;ToPrimitive&quot;</span>, <span class="kw-2">&amp;</span>name, impl_).into()
+    import.wrap(<span class="string">"ToPrimitive"</span>, <span class="kw-2">&amp;</span>name, impl_).into()
 }
 
-<span class="kw">const </span>NEWTYPE_ONLY: <span class="kw-2">&amp;</span>str = <span class="string">&quot;This trait can only be derived for newtypes&quot;</span>;
+<span class="kw">const </span>NEWTYPE_ONLY: <span class="kw-2">&amp;</span>str = <span class="string">"This trait can only be derived for newtypes"</span>;
 
 <span class="doccomment">/// Derives [`num_traits::NumOps`][num_ops] for newtypes.  The inner type must already implement
 /// `NumOps`.
@@ -1522,7 +1522,7 @@
     <span class="kw">let </span>ast = <span class="macro">parse!</span>(input <span class="kw">as </span>syn::DeriveInput);
     <span class="kw">let </span>name = <span class="kw-2">&amp;</span>ast.ident;
     <span class="kw">let </span>inner_ty = newtype_inner(<span class="kw-2">&amp;</span>ast.data).expect(NEWTYPE_ONLY);
-    <span class="kw">let </span>impl_ = <span class="macro">quote! </span>{
+    <span class="kw">let </span>impl_ = <span class="macro">quote!</span> {
         <span class="kw">impl </span>::core::ops::Add <span class="kw">for </span>#name {
             <span class="kw">type </span>Output = <span class="self">Self</span>;
             <span class="attr">#[inline]
@@ -1574,7 +1574,7 @@
 
     <span class="kw">let </span>import = NumTraits::new(<span class="kw-2">&amp;</span>ast);
 
-    <span class="kw">let </span>impl_ = <span class="macro">quote! </span>{
+    <span class="kw">let </span>impl_ = <span class="macro">quote!</span> {
         <span class="kw">impl </span>#import::NumCast <span class="kw">for </span>#name {
             <span class="attr">#[inline]
             </span><span class="kw">fn </span>from&lt;T: #import::ToPrimitive&gt;(n: T) -&gt; <span class="prelude-ty">Option</span>&lt;<span class="self">Self</span>&gt; {
@@ -1583,7 +1583,7 @@
         }
     };
 
-    import.wrap(<span class="string">&quot;NumCast&quot;</span>, <span class="kw-2">&amp;</span>name, impl_).into()
+    import.wrap(<span class="string">"NumCast"</span>, <span class="kw-2">&amp;</span>name, impl_).into()
 }
 
 <span class="doccomment">/// Derives [`num_traits::Zero`][zero] for newtypes.  The inner type must already implement `Zero`.
@@ -1597,7 +1597,7 @@
 
     <span class="kw">let </span>import = NumTraits::new(<span class="kw-2">&amp;</span>ast);
 
-    <span class="kw">let </span>impl_ = <span class="macro">quote! </span>{
+    <span class="kw">let </span>impl_ = <span class="macro">quote!</span> {
         <span class="kw">impl </span>#import::Zero <span class="kw">for </span>#name {
             <span class="attr">#[inline]
             </span><span class="kw">fn </span>zero() -&gt; <span class="self">Self </span>{
@@ -1610,7 +1610,7 @@
         }
     };
 
-    import.wrap(<span class="string">&quot;Zero&quot;</span>, <span class="kw-2">&amp;</span>name, impl_).into()
+    import.wrap(<span class="string">"Zero"</span>, <span class="kw-2">&amp;</span>name, impl_).into()
 }
 
 <span class="doccomment">/// Derives [`num_traits::One`][one] for newtypes.  The inner type must already implement `One`.
@@ -1624,7 +1624,7 @@
 
     <span class="kw">let </span>import = NumTraits::new(<span class="kw-2">&amp;</span>ast);
 
-    <span class="kw">let </span>impl_ = <span class="macro">quote! </span>{
+    <span class="kw">let </span>impl_ = <span class="macro">quote!</span> {
         <span class="kw">impl </span>#import::One <span class="kw">for </span>#name {
             <span class="attr">#[inline]
             </span><span class="kw">fn </span>one() -&gt; <span class="self">Self </span>{
@@ -1637,7 +1637,7 @@
         }
     };
 
-    import.wrap(<span class="string">&quot;One&quot;</span>, <span class="kw-2">&amp;</span>name, impl_).into()
+    import.wrap(<span class="string">"One"</span>, <span class="kw-2">&amp;</span>name, impl_).into()
 }
 
 <span class="doccomment">/// Derives [`num_traits::Num`][num] for newtypes.  The inner type must already implement `Num`.
@@ -1651,7 +1651,7 @@
 
     <span class="kw">let </span>import = NumTraits::new(<span class="kw-2">&amp;</span>ast);
 
-    <span class="kw">let </span>impl_ = <span class="macro">quote! </span>{
+    <span class="kw">let </span>impl_ = <span class="macro">quote!</span> {
         <span class="kw">impl </span>#import::Num <span class="kw">for </span>#name {
             <span class="kw">type </span>FromStrRadixErr = &lt;#inner_ty <span class="kw">as </span>#import::Num&gt;::FromStrRadixErr;
             <span class="attr">#[inline]
@@ -1661,7 +1661,7 @@
         }
     };
 
-    import.wrap(<span class="string">&quot;Num&quot;</span>, <span class="kw-2">&amp;</span>name, impl_).into()
+    import.wrap(<span class="string">"Num"</span>, <span class="kw-2">&amp;</span>name, impl_).into()
 }
 
 <span class="doccomment">/// Derives [`num_traits::Float`][float] for newtypes.  The inner type must already implement
@@ -1676,7 +1676,7 @@
 
     <span class="kw">let </span>import = NumTraits::new(<span class="kw-2">&amp;</span>ast);
 
-    <span class="kw">let </span>impl_ = <span class="macro">quote! </span>{
+    <span class="kw">let </span>impl_ = <span class="macro">quote!</span> {
         <span class="kw">impl </span>#import::Float <span class="kw">for </span>#name {
             <span class="attr">#[inline]
             </span><span class="kw">fn </span>nan() -&gt; <span class="self">Self </span>{
@@ -1910,7 +1910,7 @@
         }
     };
 
-    import.wrap(<span class="string">&quot;Float&quot;</span>, <span class="kw-2">&amp;</span>name, impl_).into()
+    import.wrap(<span class="string">"Float"</span>, <span class="kw-2">&amp;</span>name, impl_).into()
 }
 
 <span class="kw">mod </span>test;
